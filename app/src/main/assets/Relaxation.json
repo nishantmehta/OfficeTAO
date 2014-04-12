@@ -1,0 +1,66 @@
+{
+    "meta": {
+        "type": "meta",
+        "name": "Relaxation log"
+    },
+
+    "Thoughts, emotions, worries before": {
+        "type": "string",
+        "id": "0",
+        "default": "",
+        "priority": "1" 
+    },
+
+    "Level of Anxiety before": {
+        "type": "integer",
+        "id": "1",
+        "default": "1",
+        "priority": "3",
+        "options": {
+            "1": "1",
+            "2": "2",
+            "3": "3",
+            "4": "4",
+            "5": "5",
+            "6": "6",
+            "7": "7",
+            "8": "8",
+            "9": "9",
+            "10": "10"
+        }
+    },
+    "Relaxation exercise practiced": {
+        "type": "integer",
+        "id": "2",
+        "default": "1",
+        "priority": "3",
+        "options": {
+            "1": "None",
+            "guided meditation": "guided meditation",
+            "progressive muscle relaxation": "progressive muscle relaxation",
+            "mindfulness": "mindfulness",
+            "some other ex 1": "some other ex 1",
+            "some other ex 2": "some other ex 2",
+            "some other ex 3": "some other ex 3"
+
+        }
+    },
+    "Level of Anxiety after": {
+        "type": "integer",
+        "id": "3",
+        "default": "1",
+        "priority": "3",
+        "options": {
+            "1": "1",
+            "2": "2",
+            "3": "3",
+            "4": "4",
+            "5": "5",
+            "6": "6",
+            "7": "7",
+            "8": "8",
+            "9": "9",
+            "10": "10"
+        }
+    }
+}

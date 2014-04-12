@@ -1,0 +1,65 @@
+{
+    "meta": {
+        "type": "meta",
+        "name": "Music Album" 
+    },
+    "Date/Time of Event": {
+        "type": "string",
+        "id": "0",
+        "default": "",
+        "priority": "0",
+        "hint":"Example: 10/30/1999"
+    },
+    "Anxiety causing event": {
+        "type": "string",
+        "id": "1",
+        "default": "",
+        "priority": "1" 
+    },
+    "Specific worry": {
+        "type": "string",
+        "id": "2",
+        "default": "",
+        "priority": "2"
+        
+    },
+    "Select a vaule": {
+        "type": "integer",
+        "id": "3",
+        "default": "0",
+        "priority": "3",
+        "options": {
+            "0": "None",
+            "1": "some reason 1",
+            "2": "some reason 2",
+            "3": "some reason 3",
+            "4": "some reason 4",
+            
+            "5": "last reason" 
+        }
+    },
+   
+    "some conditional value": {
+        "type": "boolean",
+        "id": "6",
+        "default": "0",
+        "priority": "7",
+        "toggles": {
+            "1": [ "some_other_value" ] 
+        }   
+    },
+    "some_other_value": {
+        "type": "integer",
+        "id": "7",
+        "default": "0",
+        "priority": "8",
+        "options": {
+            "0": "N/A",
+            "1": "value 1",
+            "2": "value 2",
+            "3": "value 3",
+            "4": "value 4",
+            "5": "value 5" 
+        } 
+    }
+}

@@ -1,0 +1,122 @@
+{
+    "meta": {
+        "type": "meta",
+        "name": "Anxiety challenge log 2"
+    },
+    "Worry situation": {
+        "type": "string",
+        "id": "0",
+        "default": "",
+        "priority": "0"
+
+    },
+    "Worst possible outcome": {
+        "type": "string",
+        "id": "1",
+        "default": "",
+        "priority": "1" 
+    },
+    "Before exercise": {
+            "type": "integer",
+            "id": "2",
+            "default": "1",
+            "priority": "3",
+            "options": {
+                "1": "1",
+                "2": "2",
+                "3": "3",
+                "4": "4",
+                "5": "5",
+                "6": "6",
+                "7": "7",
+                "8": "8",
+                "9": "9",
+                "10": "10"
+            }
+        },
+        "Maximum During exposure": {
+                    "type": "integer",
+                    "id": "3",
+                    "default": "1",
+                    "priority": "3",
+                    "options": {
+                        "1": "1",
+                        "2": "2",
+                        "3": "3",
+                        "4": "4",
+                        "5": "5",
+                        "6": "6",
+                        "7": "7",
+                        "8": "8",
+                        "9": "9",
+                        "10": "10"
+                    }
+                },
+    "While thinking about worst outcome": {
+                "type": "integer",
+                "id": "4",
+                "default": "1",
+                "priority": "3",
+                "options": {
+                    "1": "1",
+                    "2": "2",
+                    "3": "3",
+                    "4": "4",
+                    "5": "5",
+                    "6": "6",
+                    "7": "7",
+                    "8": "8",
+                    "9": "9",
+                    "10": "10"
+                }
+            },
+    "After thinking about alternative": {
+                "type": "integer",
+                "id": "5",
+                "default": "1",
+                "priority": "3",
+                "options": {
+                    "1": "1",
+                    "2": "2",
+                    "3": "3",
+                    "4": "4",
+                    "5": "5",
+                    "6": "6",
+                    "7": "7",
+                    "8": "8",
+                    "9": "9",
+                    "10": "10"
+                }
+            },
+     "After exercise": {
+                 "type": "integer",
+                 "id": "6",
+                 "default": "1",
+                 "priority": "3",
+                 "options": {
+                     "1": "1",
+                     "2": "2",
+                     "3": "3",
+                     "4": "4",
+                     "5": "5",
+                     "6": "6",
+                     "7": "7",
+                     "8": "8",
+                     "9": "9",
+                     "10": "10"
+                 }
+             },
+     "Symptoms during exercise": {
+             "type": "string",
+             "id": "7",
+             "default": "",
+             "priority": "4"
+         },
+    "Alternative outcome": {
+            "type": "string",
+            "id": "8",
+            "default": "",
+            "priority": "5"
+        }
+
+}

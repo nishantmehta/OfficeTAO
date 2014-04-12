@@ -1,0 +1,56 @@
+{
+    "meta": {
+        "type": "meta",
+        "name": "Anxiety challenge log"
+    },
+
+    "Anxiety causing event": {
+        "type": "string",
+        "id": "0",
+        "default": "",
+        "priority": "1" 
+    },
+    "Specific worry": {
+        "type": "string",
+        "id": "1",
+        "default": "",
+        "priority": "2"
+        
+    },
+    "Possible triggers": {
+        "type": "string",
+        "id": "2",
+        "default": "0",
+        "priority": "3"
+    },
+    "What you did or didn't do because of worry": {
+            "type": "string",
+            "id": "3",
+            "default": "0",
+            "priority": "3"
+        },
+    "Outcome of the situation": {
+                "type": "string",
+                "id": "4",
+                "default": "0",
+                "priority": "3"
+            },
+   "Unhealthy assumptions": {
+               "type": "string",
+               "id": "5",
+               "default": "0",
+               "priority": "3"
+           },
+    "Challenges to unhealthy assumptions": {
+                "type": "string",
+                "id": "6",
+                "default": "0",
+                "priority": "3"
+            },
+     "Alternative way to view situation": {
+                 "type": "string",
+                 "id": "7",
+                 "default": "0",
+                 "priority": "3"
+             }
+}

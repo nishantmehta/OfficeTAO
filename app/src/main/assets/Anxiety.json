@@ -1,0 +1,39 @@
+{
+    "meta": {
+        "type": "meta",
+        "name": "Anxiety Log"
+    },
+    "Anxiety causing event": {
+        "type": "string",
+        "id": "0",
+        "default": "",
+        "priority": "0"
+    },
+    "Specific worry": {
+        "type": "string",
+        "id": "1",
+        "default": "",
+        "priority": "1"
+    },
+    "Possible triggers": {
+        "type": "string",
+        "id": "2",
+        "default": "",
+        "priority": "2"
+
+    },
+    "What you did or didn't do becuase of the worry": {
+        "type": "string",
+        "id": "3",
+
+        "priority": "3"
+    },
+
+    "Outcome of the situation": {
+        "type": "string",
+        "id": "6",
+
+        "priority": "7"
+    }
+
+}
