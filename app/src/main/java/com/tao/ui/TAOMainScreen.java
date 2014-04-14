@@ -26,6 +26,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.formtry.FormActivity;
 import com.tao.R;
@@ -155,6 +156,7 @@ public class TAOMainScreen extends ActionBarActivity {
             public void onDrawerClosed(View view) {
                 //getActionBar().setTitle(mTitle);
                 // calling onPrepareOptionsMenu() to show action bar icons
+
                 invalidateOptionsMenu();
             }
 
@@ -213,8 +215,11 @@ public class TAOMainScreen extends ActionBarActivity {
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-
+    if( mDrawerToggle.onOptionsItemSelected(item))
+    {    return true;
+    }
         switch (id){
+
             case R.id.action_add_log:
             {
                 View menuID = findViewById(R.id.action_add_log);
