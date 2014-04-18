@@ -15,6 +15,7 @@ import android.view.ViewGroup;
 import android.os.Build;
 import android.widget.Button;
 import android.widget.Toast;
+import android.util.Base64;
 
 import com.formtry.FormActivity;
 import com.tao.R;
@@ -86,6 +87,8 @@ public class DataFormActivity  extends FormActivity implements OnDateSetListener
             }
         });
 
+        findViewById(R.id.dateDataButton).setBackgroundResource(R.drawable.abc_spinner_ab_default_holo_light);
+        findViewById(R.id.timeDataButton).setBackgroundResource(R.drawable.abc_spinner_ab_default_holo_light);
         findViewById(R.id.timeDataButton).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -169,7 +172,7 @@ public class DataFormActivity  extends FormActivity implements OnDateSetListener
                 LDS.addOrUpdateLog(log);
                 LDS.close();
                 Toast.makeText(this,"log  saved",Toast.LENGTH_SHORT);
-                Log.d("output", data);
+                Log.d("TAO", data);
                 break;
 
             }
@@ -200,7 +203,9 @@ public class DataFormActivity  extends FormActivity implements OnDateSetListener
     @Override
     public void onDateSet(DatePickerDialog datePickerDialog, int year, int month, int day) {
         Log.d("TAO","month "+month);
-        calendar.set(year, month, day);
+        calendar.set(Calendar.MONTH,month);
+        calendar.set(Calendar.DATE,day);
+        calendar.set(Calendar.YEAR,year);
         Log.d("TAO","month "+calendar.MONTH);
         dateButton.setText(HelperFunctions.dateFormatter(calendar.getTimeInMillis()));
     }

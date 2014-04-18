@@ -61,9 +61,9 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 		//to store application shared variable to remember user options
 		SharedPreferences myPrefs = ctx.getSharedPreferences("UserInfoTAO",android.content.Context.MODE_WORLD_READABLE);
         SharedPreferences.Editor prefsEditor = myPrefs.edit();
-        prefsEditor.putString("var1", null);
-        prefsEditor.putString("var2", null);
-        prefsEditor.putString("var3","0");
+        prefsEditor.putString("passwordCheck", "0");
+        prefsEditor.putString("password", "1234");
+        prefsEditor.putString("registered","0");
         prefsEditor.commit();
 	}
 

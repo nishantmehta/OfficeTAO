@@ -26,6 +26,8 @@ import com.tao.unitClass.Logs;
 import com.tao.utility.HelperFunctions;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 /**
@@ -60,6 +62,7 @@ public class MainListFragment extends Fragment {
 
         elv = (EnhancedListView) rootView.findViewById(R.id.ListViewFragment);
         lAdapter= new EnahncedListViewAdapter();
+
         lAdapter.resetItems();
         elv.setAdapter(lAdapter);
         this.setUpList();
@@ -116,7 +119,7 @@ public class MainListFragment extends Fragment {
 
         elv.setUndoStyle(EnhancedListView.UndoStyle.MULTILEVEL_POPUP);
         elv.enableSwipeToDismiss();
-        elv.setSwipeDirection(EnhancedListView.SwipeDirection.BOTH);
+        elv.setSwipeDirection(EnhancedListView.SwipeDirection.START);
         elv.setRequireTouchBeforeDismiss(false);
         elv.setUndoHideDelay(3000);
 
@@ -133,6 +136,7 @@ public class MainListFragment extends Fragment {
             LogsDataSource LDS = new LogsDataSource(ctx);
             LDS.open();
             List<Logs> templist= LDS.getAllLogs();
+
             //
 
 
@@ -151,6 +155,13 @@ public class MainListFragment extends Fragment {
             }
 
             logs=listLogs;
+
+
+            for (Logs g : logs)
+            {
+                Log.d("TAO",HelperFunctions.dateFormatter(g.getTimeStamp()));
+            }
+
             LDS.close();
             notifyDataSetChanged();;
         }
@@ -168,6 +179,7 @@ public class MainListFragment extends Fragment {
         public long getItemId(int position) {
             return position;
         }
+
 
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {

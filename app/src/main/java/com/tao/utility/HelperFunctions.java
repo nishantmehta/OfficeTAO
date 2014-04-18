@@ -12,12 +12,13 @@ public class HelperFunctions {
 
 
 
-        String date = DateFormat.format("mm/dd/yyyy hh:mm a", time).toString();
+        String date = DateFormat.format("MMM dd yyyy - hh:mm a", time).toString();
+
         return date;
     }
 
     public static String dateFormatter(Long time){
-        return DateFormat.format("mm/dd/yyyy", time).toString();
+        return DateFormat.format("MMM-dd-yyyy", time).toString();
     }
 
     public static String onlyTimeFormatter(Long time){

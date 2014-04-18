@@ -1,7 +1,11 @@
 package com.tao.ui;
 
 import android.annotation.TargetApi;
+import android.app.AlarmManager;
 import android.app.FragmentManager;
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
@@ -27,6 +31,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.util.Base64;
 
 import com.formtry.FormActivity;
 import com.tao.R;
@@ -38,7 +43,11 @@ import com.tao.unitClass.NavListItem;
 import com.tao.utility.HelperFunctions;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
+import java.util.TimeZone;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class TAOMainScreen extends ActionBarActivity {
     private DrawerLayout mDrawerLayout;
@@ -65,6 +74,8 @@ public class TAOMainScreen extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_taomain_screen);
+   // getActionBar().setBackgroundDrawable(Color.BLUE);
+
 
         FormTemplateDataSource FTDS = new FormTemplateDataSource(this);
            ctx=this;
@@ -89,6 +100,8 @@ public class TAOMainScreen extends ActionBarActivity {
         Form f4 = new Form("Exposure Log",Exposure,1);
         f4.setFormID(4);
         f4.setTimeStamp(454589345);
+
+
 
 
         FTDS.open();
@@ -182,8 +195,28 @@ public class TAOMainScreen extends ActionBarActivity {
                     .commit();
         }
 
+        setRecurringAlarm(ctx);
 
     }
+    private void setRecurringAlarm(Context context) {
+
+        // we know mobiletuts updates at right around 1130 GMT.
+        // let's grab new stuff at around 11:45 GMT, inexactly
+        Calendar updateTime = Calendar.getInstance();
+       // updateTime.setTimeZone(TimeZone.getTimeZone("GMT"));
+        //updateTime.set(Calendar.HOUR_OF_DAY, 11);
+        updateTime.set(Calendar.MINUTE, 59);
+
+        Intent downloader = new Intent(context, NotificationReceiver.class);
+        PendingIntent recurringDownload = PendingIntent.getBroadcast(context,
+                0, downloader, PendingIntent.FLAG_CANCEL_CURRENT);
+        AlarmManager alarms = (AlarmManager) this.getSystemService(
+                Context.ALARM_SERVICE);
+        alarms.setRepeating(AlarmManager.RTC_WAKEUP,
+                0, 1000 * 60 * 60, recurringDownload);
+    }
+
+
     /***
      * Called when invalidateOptionsMenu() is triggered
      */
@@ -195,9 +228,9 @@ public class TAOMainScreen extends ActionBarActivity {
         return super.onPrepareOptionsMenu(menu);
     }
     public void setUpNavItems(){
-        navItemArray.add(new NavListItem(R.drawable.ic_launcher,"All forms", 0,1));
+        navItemArray.add(new NavListItem(R.drawable.ic_action_collections_view_as_list,"All forms", 0,1));
         for (Form f : navFormArray){
-            navItemArray.add(new NavListItem(R.drawable.ic_launcher,f.getFormName(),f.getFormID(),0));
+            navItemArray.add(new NavListItem(R.drawable.ic_action_content_paste,f.getFormName(),f.getFormID(),0));
         }
 
     }

@@ -1,6 +1,8 @@
 package com.tao.database;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 import com.tao.unitClass.Form;
@@ -11,6 +13,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Base64;
 import android.util.Log;
 public class LogsDataSource {
 
@@ -35,7 +38,7 @@ public class LogsDataSource {
 					+log.getTimeStamp() +","
 					+log.getFormID()
 					+ ",'"
-					+ log.getData()
+					+ Base64.encodeToString(log.getData().getBytes(), Base64.DEFAULT)
 					+ "',"
 					 + log.getFlag() + ")";
 			database.execSQL(sqlString);
@@ -89,7 +92,17 @@ public class LogsDataSource {
 			cursor.moveToNext();
 		}
 		cursor.close();
-
+        Collections.sort( logs, new Comparator<Logs>() {
+            @Override
+            public int compare(Logs lhs, Logs rhs) {
+                if(lhs.getTimeStamp()>rhs.getTimeStamp())
+                    return -1;
+                if(lhs.getTimeStamp()<rhs.getTimeStamp())
+                    return 1;
+                else
+                    return 0;
+            }
+        });
 		return logs;
 	}
 
@@ -107,7 +120,11 @@ public class LogsDataSource {
 
 	private Logs cursorToLog(Cursor cursor){
 		Logs log = new Logs();
-		log.setData(cursor.getString(cursor.getColumnIndex(DataBaseHelper.COLUMN_DATA)));
+
+        String grub=cursor.getString(cursor.getColumnIndex(DataBaseHelper.COLUMN_DATA));
+       // Log.d("TAO","@@ data from string @@"+grub);
+		log.setData(new String( Base64.decode( grub, Base64.DEFAULT ) ));
+
 		log.setFormID(cursor.getLong(cursor.getColumnIndex(DataBaseHelper.COLUMN_FORM_ID)));
 		log.setLogID(cursor.getLong(cursor.getColumnIndex(DataBaseHelper.COLUMN_LOG_ID)));
 		log.setTimeStamp(cursor.getLong(cursor.getColumnIndex(DataBaseHelper.COLUMN_TIME_STAMP)));
